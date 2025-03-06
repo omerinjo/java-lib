@@ -12,10 +12,27 @@ public class Match {
         this.homeTeam = new Team(homeTeam);
         this.awayTeam = new Team(awayTeam);
         this.startDate = date;
+        this.result = new Result(0, 0);
     }
 
     public void setScore(int homeScore, int awayScore) {
         this.result = new Result(homeScore, awayScore);
+    }
+
+    public Team getHomeTeam() {
+        return this.homeTeam;
+    }
+
+    public Team getAwayTeam() {
+        return this.awayTeam;
+    }
+
+    public Result getResult() {
+        return this.result;
+    }
+
+    public Date getDate() {
+        return this.startDate;
     }
 
     @Override
