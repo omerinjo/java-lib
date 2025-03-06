@@ -48,4 +48,22 @@ public class MatchServiceTest {
         assertEquals(matchList.size(), 4);
 
     }
+
+    @Test
+    void testEndMatchWillRemoveMatchFromMatchList() {
+        board.createMatch("Argentina", "Brazil", new Date());
+        board.createMatch("Germany", "England", new Date());
+
+        List<Match> matchList = board.getAllResults();
+        board.endMatch(0);
+
+        assertEquals(matchList.size(), 1);
+
+        assertEquals(matchList.get(0).getHomeTeam().getTeamName(), "Argentina");
+        assertEquals(matchList.get(0).getAwayTeam().getTeamName(), "Brazil");
+        assertEquals(matchList.get(0).getResult().getHomeScore(), 0);
+        assertEquals(matchList.get(0).getResult().getAwayScore(), 0);
+
+    }
+
 }
