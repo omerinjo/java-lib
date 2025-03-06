@@ -59,8 +59,8 @@ public class MatchServiceTest {
 
         assertEquals(matchList.size(), 1);
 
-        assertEquals(matchList.get(0).getHomeTeam().getTeamName(), "Argentina");
-        assertEquals(matchList.get(0).getAwayTeam().getTeamName(), "Brazil");
+        assertEquals(matchList.get(0).getHomeTeam().getTeamName(), "Germany");
+        assertEquals(matchList.get(0).getAwayTeam().getTeamName(), "England");
         assertEquals(matchList.get(0).getResult().getHomeScore(), 0);
         assertEquals(matchList.get(0).getResult().getAwayScore(), 0);
 
