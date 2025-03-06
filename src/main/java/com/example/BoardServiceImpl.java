@@ -17,7 +17,7 @@ class BoardServiceImpl implements IMatchService {
     }
 
     @Override
-    public IMatchService endMatch(int matcId) {
+    public IMatchService endMatch(int matchId) {
         throw new UnsupportedOperationException("Unimplemented method 'endMatch'");
     }
 
