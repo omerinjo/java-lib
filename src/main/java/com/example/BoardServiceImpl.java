@@ -1,15 +1,19 @@
 package com.example;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import com.example.models.Match;
 
 class BoardServiceImpl implements IMatchService {
+    private final List<Match> matchList = new ArrayList<>();
 
     @Override
     public IMatchService createMatch(String homeTeam, String awayTeam, Date date) {
-        throw new UnsupportedOperationException("Unimplemented method 'createMatch'");
+        Match match = new Match(homeTeam, awayTeam, date);
+        matchList.add(match);
+        return this;
     }
 
     @Override
@@ -24,7 +28,7 @@ class BoardServiceImpl implements IMatchService {
 
     @Override
     public List<Match> getAllResults() {
-        throw new UnsupportedOperationException("Unimplemented method 'getAllResults'");
+        return this.matchList;
     }
 
 }
