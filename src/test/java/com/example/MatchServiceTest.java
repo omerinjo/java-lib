@@ -66,4 +66,16 @@ public class MatchServiceTest {
 
     }
 
+    @Test
+    void testUpdateResultWillUpdateResultForMatch() {
+        board.createMatch("Argentina", "Brazil", new Date());
+
+        board.updateResult(1, 3, 0);
+        List<Match> matchList = board.getAllResults();
+
+        assertEquals(matchList.get(0).getResult().getHomeScore(), 1);
+        assertEquals(matchList.get(0).getResult().getAwayScore(), 3);
+
+    }
+
 }
