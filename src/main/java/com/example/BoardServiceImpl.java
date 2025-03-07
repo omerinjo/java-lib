@@ -1,8 +1,10 @@
 package com.example;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.example.models.Match;
 
@@ -31,7 +33,11 @@ class BoardServiceImpl implements IMatchService {
 
     @Override
     public List<Match> getAllResults() {
-        return this.matchList;
+        return this.matchList.stream()
+                .sorted(Comparator.comparingInt((Match match) -> match.getResult().getHomeScore()
+                        + match.getResult().getAwayScore()).reversed()
+                        .thenComparing(Match::getDate, Comparator.reverseOrder()))
+                .collect(Collectors.toList());
     }
 
 }
