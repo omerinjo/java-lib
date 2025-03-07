@@ -24,7 +24,9 @@ class BoardServiceImpl implements IMatchService {
 
     @Override
     public IMatchService updateResult(int homeScore, int awayScore, int index) {
-        throw new UnsupportedOperationException("Unimplemented method 'updateResult'");
+        Match match = matchList.get(index);
+        match.setScore(homeScore, awayScore);
+        return this;
     }
 
     @Override
