@@ -59,13 +59,16 @@ Then, add the following dependency to your pom.xml:
     The library provides the following methods for match management:
 
    -Creates a new match and adds it to the match list.
-    createMatch(String homeTeam, String awayTeam, Date date)
+       createMatch(String homeTeam, String awayTeam, Date date)
+    
    -Removes a match from the match list based on its index.
-    endMatch(int matchId)	
+       endMatch(int matchId)	
+    
    -Updates the score of an existing match.
-    updateResult(int homeScore, int awayScore, int matchId)
+       updateResult(int homeScore, int awayScore, int matchId)
+    
    -Returns all matches, sorted first by total score and then by date.
-   getAllResults()	
+      getAllResults()	
 
 
 🏗 Internal Implementation
