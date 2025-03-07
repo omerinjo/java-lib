@@ -55,8 +55,9 @@ public class MatchServiceTest {
         board.createMatch("Argentina", "Brazil", new Date());
         board.createMatch("Germany", "England", new Date());
 
-        List<Match> matchList = board.getAllResults();
         board.endMatch(0);
+
+        List<Match> matchList = board.getAllResults();
 
         assertEquals(matchList.size(), 1);
 
