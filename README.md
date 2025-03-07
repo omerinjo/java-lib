@@ -34,6 +34,7 @@ Then, add the following dependency to your pom.xml:
 
 
 🚀 Usage
+
   1️⃣ Obtain an instance of the service using the factory
 
       matchService.createMatch("Argentina", "Brazil", new Date());
