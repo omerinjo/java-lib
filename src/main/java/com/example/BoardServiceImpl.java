@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.example.models.Match;
+import com.example.validation.MatchValidation;
 
 class BoardServiceImpl implements IMatchService {
     private final List<Match> matchList = new ArrayList<>();
@@ -20,7 +21,13 @@ class BoardServiceImpl implements IMatchService {
 
     @Override
     public IMatchService endMatch(int matchId) {
-        matchList.remove(matchId);
+        try {
+            MatchValidation.validateMatchIdExist(matchId, matchList);
+            matchList.remove(matchId);
+        } catch (Exception e) {
+            System.err.println(e.getLocalizedMessage());
+        }
+
         return this;
     }
 
