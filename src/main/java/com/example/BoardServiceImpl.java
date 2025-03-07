@@ -32,9 +32,15 @@ class BoardServiceImpl implements IMatchService {
     }
 
     @Override
-    public IMatchService updateResult(int homeScore, int awayScore, int index) {
-        Match match = matchList.get(index);
-        match.setScore(homeScore, awayScore);
+    public IMatchService updateResult(int homeScore, int awayScore, int matchId) {
+        try {
+            MatchValidation.validateMatchIdExist(matchId, matchList);
+            Match match = matchList.get(matchId);
+            match.setScore(homeScore, awayScore);
+        } catch (Exception e) {
+            System.err.println(e.getLocalizedMessage());
+        }
+
         return this;
     }
 
