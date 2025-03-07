@@ -56,24 +56,24 @@ Then, add the following dependency to your pom.xml:
 🏗️ IMatchService Interface
 The library provides the following methods for match management:
 
-createMatch(String homeTeam, String awayTeam, Date date)	Creates a new match and adds it to the match list.
-endMatch(int matchId)	Removes a match from the match list based on its index.
-updateResult(int homeScore, int awayScore, int matchId)	Updates the score of an existing match.
-getAllResults()	Returns all matches, sorted first by total score and then by date.
+   -createMatch(String homeTeam, String awayTeam, Date date)	Creates a new match and adds it to the match list.
+   -endMatch(int matchId)	Removes a match from the match list based on its index.
+   -updateResult(int homeScore, int awayScore, int matchId)	Updates the score of an existing match.
+   -getAllResults()	Returns all matches, sorted first by total score and then by date.
 
 
 🏗 Internal Implementation
 The library contains:
 
-IMatchService → Interface defining the contract for match management.
-BoardServiceImpl → The implementation of IMatchService (stores matches in a list).
-MatchServiceFactory → Factory class to create instances of IMatchService.
+   -IMatchService → Interface defining the contract for match management.
+   -BoardServiceImpl → The implementation of IMatchService (stores matches in a list).
+   -MatchServiceFactory → Factory class to create instances of IMatchService.
 
-import com.example.IMatchService;
-import com.example.MatchServiceFactory;
+   -import com.example.IMatchService;
+   -import com.example.MatchServiceFactory;
 
 
-IMatchService matchService = MatchServiceFactory.newInstance();
+   -IMatchService matchService = MatchServiceFactory.newInstance();
 
 
 🔥 Error Handling
@@ -86,4 +86,3 @@ mvn clean package
 
 To run unit tests:
 mvn test
-```
