@@ -1,5 +1,6 @@
 package com.example;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -76,6 +77,48 @@ public class MatchServiceTest {
         assertEquals(matchList.get(0).getResult().getHomeScore(), 1);
         assertEquals(matchList.get(0).getResult().getAwayScore(), 3);
 
+    }
+
+    @Test
+    void testGetAllResultsSortedByScoreAndDate() {
+        Calendar calendar = Calendar.getInstance();
+
+        Date[] dates = new Date[6];
+        dates[0] = calendar.getTime();
+
+        for (int i = 1; i < 5; i++) {
+            calendar.add(Calendar.SECOND, 1);
+            dates[i] = calendar.getTime();
+        }
+
+        board.createMatch("Turkey", "Brasil", dates[0]);
+        board.createMatch("Bosnia", "Nigeria", dates[1]);
+        board.createMatch("Argentina", "Brazil", dates[2]);
+        board.createMatch("Germany", "Italy", dates[3]);
+        board.createMatch("Spain", "England", dates[4]);
+
+        board.updateResult(2, 2, 0);
+        board.updateResult(2, 2, 1);
+        board.updateResult(3, 3, 2);
+        board.updateResult(4, 4, 3);
+        board.updateResult(7, 5, 4);
+
+        List<Match> matchlist = board.getAllResults();
+
+        assertEquals(matchlist.get(0).getHomeTeam().getTeamName(), "Spain");
+        assertEquals(matchlist.get(0).getAwayTeam().getTeamName(), "England");
+
+        assertEquals(matchlist.get(1).getHomeTeam().getTeamName(), "Germany");
+        assertEquals(matchlist.get(1).getAwayTeam().getTeamName(), "Italy");
+
+        assertEquals(matchlist.get(2).getHomeTeam().getTeamName(), "Argentina");
+        assertEquals(matchlist.get(2).getAwayTeam().getTeamName(), "Brazil");
+
+        assertEquals(matchlist.get(3).getHomeTeam().getTeamName(), "Bosnia");
+        assertEquals(matchlist.get(3).getAwayTeam().getTeamName(), "Nigeria");
+
+        assertEquals(matchlist.get(4).getHomeTeam().getTeamName(), "Turkey");
+        assertEquals(matchlist.get(4).getAwayTeam().getTeamName(), "Brasil");
     }
 
 }
