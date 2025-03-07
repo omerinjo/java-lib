@@ -34,27 +34,28 @@ Then, add the following dependency to your pom.xml:
 
 
 🚀 Usage
-1️⃣ Obtain an instance of the service using the factory
+  1️⃣ Obtain an instance of the service using the factory
 
-    matchService.createMatch("Argentina", "Brazil", new Date());
+      matchService.createMatch("Argentina", "Brazil", new Date());
 
-2️⃣ Create a new match
+  2️⃣ Create a new match
 
-    matchService.createMatch("Argentina", "Brazil", new Date());
+      matchService.createMatch("Argentina", "Brazil", new Date());
 
-4️⃣ Update a match result
+  4️⃣ Update a match result
 
-    matchService.updateResult(2, 1, 0); // Set score 2-1 for match with index 0
+      matchService.updateResult(2, 1, 0); // Set score 2-1 for match with index 0
 
-5️⃣ End a match
+  5️⃣ End a match
 
-    matchService.endMatch(0); // Removes match at index 0
+      matchService.endMatch(0); // Removes match at index 0
 
 
 
 📜 API Methods
+
 🏗️ IMatchService Interface
-The library provides the following methods for match management:
+    The library provides the following methods for match management:
 
    -Creates a new match and adds it to the match list.
     createMatch(String homeTeam, String awayTeam, Date date)
