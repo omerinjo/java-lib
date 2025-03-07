@@ -48,7 +48,7 @@ Then, add the following dependency to your pom.xml:
 
 5️⃣ End a match
 
-   matchService.endMatch(0); // Removes match at index 0
+    matchService.endMatch(0); // Removes match at index 0
 
 
 
